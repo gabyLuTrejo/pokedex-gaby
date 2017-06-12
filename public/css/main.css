@@ -1,0 +1,20 @@
+#lista_pokemones>li {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    display: inline-grid;
+    cursor: pointer;
+    border-color: darkseagreen;
+/*    background: url("../assets/img/pokemones_sprite.png") -80px -0;*/
+}
+
+#lista_pokemones li div {
+    width: 80px;
+    height: 80px;
+    margin-left: 23%;
+    vertical-align: middle;
+}
+
+#lista_pokemones li span {
+    text-align: center;
+}
