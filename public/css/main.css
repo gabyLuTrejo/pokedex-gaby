@@ -18,3 +18,20 @@
 #lista_pokemones li span {
     text-align: center;
 }
+
+.modal-content .row {
+    margin-bottom: 0;
+}
+
+div .progress {    
+    height: 20px;
+    margin: 0;
+}
+
+.progress-bar {
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+}
