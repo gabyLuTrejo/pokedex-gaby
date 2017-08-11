@@ -1,4 +1,4 @@
-$.getJSON("http://pokeapi.co/api/v2/pokemon/", function(response){
+$.getJSON("https://pokeapi.co/api/v2/pokemon/", function(response){
     var pokemones = response.results;
     $("#siguiente").attr('data-sig', response.next);
     console.log($("#siguiente").data('sig'));
