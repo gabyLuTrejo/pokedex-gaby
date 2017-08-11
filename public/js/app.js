@@ -1,26 +1,45 @@
 $.getJSON("http://pokeapi.co/api/v2/pokemon/", function(response){
     var pokemones = response.results;
+    $("#siguiente").attr('data-sig', response.next);
+    console.log($("#siguiente").data('sig'));
     agregarPokemones(pokemones);
+    
 });
-
 
 $(document).ready(function(){
     $('.modal').modal();
     $(document).on("click",".cadaPokemon",mostrarDetallePokemon);
+    $("#siguiente").click(siguientes20);
 });
+
+var siguientes20 = function(){
+var url = $("#siguiente").data('sig');
+   $.getJSON(url, function(response){
+        var pokemones = response.results;
+        $("#siguiente").data('sig', response.next);
+        agregarPokemones(pokemones);
+   }); 
+};
+
 
 
 var sprite = 0;
+var spriteY = 0;
 
 function agregarPokemones(pokemones){
+    $("#lista_pokemones").html("");
     pokemones.forEach(function(pokemon, indice){ 
         var $a = $("<a />", {"href": "#modalPokemon"});
         var $li = $("<li />", {"class": "cadaPokemon", "data-indice": indice, "data-url": pokemon.url});        
-        $a.append($("<div />").css("background", "url(assets/img/pokemones_sprite.png)" + sprite + "px 0"));
+        $a.append($("<div />").css("background", "url(assets/img/pokemones_sprite.png)" + sprite + "px "  + spriteY + "px"));
         $li.append($a);
         $li.append($("<span />").text(pokemon.name));
         $("#lista_pokemones").append($li);
-        sprite -= 80;        
+        sprite -= 80; 
+        if (sprite === -2240){
+            sprite = 0;
+            spriteY -=80;            
+        }
     });    
 };
 
