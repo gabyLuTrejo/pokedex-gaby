@@ -31,7 +31,7 @@ function agregarPokemones(pokemones){
     pokemones.forEach(function(pokemon, indice){ 
         var $a = $("<a />", {"href": "#modalPokemon"});
         var $li = $("<li />", {"class": "cadaPokemon", "data-indice": indice, "data-url": pokemon.url});        
-        $a.append($("<div />").css("background", "url(assets/img/pokemones_sprite.png)" + sprite + "px "  + spriteY + "px"));
+        $a.append($("<div />").css("background", "url(public/assets/img/pokemones_sprite.png)" + sprite + "px "  + spriteY + "px"));
         $li.append($a);
         $li.append($("<span />").text(pokemon.name));
         $("#lista_pokemones").append($li);
